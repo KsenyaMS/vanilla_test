@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Page App</title>
+    <link rel="stylesheet" href="./frontend/static/css/index.css">
+    <link rel="stylesheet" href="./frontend/static/css/header.css">
+    <link rel="stylesheet" href="./frontend/static/css/picture.css">
+    <link rel="stylesheet" href="./frontend/static/css/content.css">
+    <link rel="stylesheet" href="./frontend/static/css/footer.css">
+    <link rel="stylesheet" href="./frontend/static/css/mobileMenu.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div style="color: white;" class="mynav-icon">
+            <img src="./frontend/static/css/menuIcon.svg"/>
+        </div>
+        <img class="header__image" src="./frontend/static/css/Magwai.svg"/>
+        <div class="header__menu">
+            <nav>
+                <ul class="header__menu__ul">
+                    <li class="menu__ul__li">УСЛУГИ</li>
+                    <li class="menu__ul__li">АБОНЕМЕНТЫ</li>
+                    <li class="menu__ul__li">ПОЧЕМУ МЫ</li>
+                    <li class="menu__ul__li">ОБОРУДОВАНИЕ</li>
+                    <li class="menu__ul__li">АКЦИИ</li>
+                    <li class="menu__ul__li">FAQ</li>
+                    <li class="menu__ul__li">КОНТАКТЫ</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header__buttons">
+            <button class="phone-button"><img src="./frontend/static/css/PhoneIcon.svg"/></button>
+            <div class="main-button">
+                <div class="main-button__container">
+                    <button class="main-button__button">ОСТАВИТЬ ЗАЯВКУ</button>
+                </div>
+                <div class="main-button__strip"></div>
+            </div>
+        </div>
+    </div>
+    <div class="mobile-menu">
+        <nav>
+            <ul class="mobile__menu__ul">
+                <li>УСЛУГИ</li>
+                <li">АБОНЕМЕНТЫ</li>
+                <li>ПОЧЕМУ МЫ</li>
+                <li>ОБОРУДОВАНИЕ</li>
+                <li>АКЦИИ</li>
+                <li>FAQ</li>
+                <li>КОНТАКТЫ</li>
+            </ul>
+        </nav>
+        <div class="mobile-menu__buttons">
+            <div class="mobile-menu__inline-block">
+                <button class="phone-button"><img src="./frontend/static/css/PhoneIcon.svg"/></button>
+                <div style="margin-top: 10px; width: 88%;" class="main-button">
+                    <div class="main-button__container">
+                        <button class="main-button__button">ОСТАВИТЬ ЗАЯВКУ</button>
+                    </div>
+                    <div class="main-button__strip"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="inform-picture">
+        <div class="inform-picture__content">
+            <p class="inform-picture__content__title">ПОЛЕТ ИЛОНА МАСКА И DOGIE COIN</p>
+            <p class="inform-picture__content__text">В прошлый четверг все офигели от полета DOGIE COIN на марс.</p>
+            <div class="main-button">
+                <div class="main-button__container">
+                    <button class="main-button__button">ОСТАВИТЬ ЗАЯВКУ</button>
+                </div>
+                <div class="main-button__strip"></div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <p class="content__title">КАРТОЧКИ</p>
+        <div class="content__card-list">
+        </div>
+    </div>
+    <div class="footer">
+        <div class="main-button">
+            <div class="main-button__container">
+                <button class="main-button__button" type="submit" onclick="showCards()">ЗАГРУЗИТЬ ЕЩЕ</button>
+            </div>
+            <div class="main-button__strip"></div>
+        </div>
+    </div>
+    <script>
+        let status = false;
+        $(window).resize(function() {
+            var width = $(window).width();
+            if (width > 400) {
+                $('.mobile-menu').removeAttr('style');
+            } else if (width <= 400) {
+                $('.mobile-menu').hide();
+            };
+        });
+        $('.mynav-icon').click(function() {
+            status = !status;
+            if (status === true) {
+                $('.mobile-menu').toggle("active");
+                $('.content').hide();
+                $('.footer').hide();
+                $('.inform-picture').hide();
+            }
+            else if (status === false) {
+                $('.mobile-menu').hide();
+                $('.content').toggle("active");
+                $('.footer').toggle("active");
+                $('.inform-picture').toggle("active");
+            }
+        });
+    </script>
+    <script src="./frontend/static/index.js"></script>
+</body>
+</html>
