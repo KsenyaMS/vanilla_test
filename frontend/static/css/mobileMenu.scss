@@ -43,3 +43,9 @@
     display: none;
   }
 }
+
+@media (min-width: 450px) {
+  .mobile-menu__buttons {
+    display: none;
+  }
+}

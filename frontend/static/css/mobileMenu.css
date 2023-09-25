@@ -41,4 +41,9 @@
   .mobile-menu {
     display: none;
   }
+}
+@media (min-width: 450px) {
+  .mobile-menu__buttons {
+    display: none;
+  }
 }/*# sourceMappingURL=mobileMenu.css.map */
