@@ -15,7 +15,7 @@ fetch(`https://jsonplaceholder.typicode.com/posts`)
             
             var cardImg = document.createElement("img");
             cardImg.className = "content__img";
-            cardImg.src = "./static/css/cardImage.png";
+            cardImg.src = "./frontend/static/css/cardImage.png";
             cardImg.alt = "Card image";
             
             var cardContentName = document.createElement("p");
