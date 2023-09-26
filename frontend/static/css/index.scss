@@ -6,11 +6,15 @@
   font-family: "Montserrat-Bold";
   src: local("Montserrat"), url(../fonts/Montserrat-Bold.ttf) format("truetype");
 }
+
+$color: #FFFFFF;
+$backgroundColor: #131313;
+
 html, body {
   height: 100%;
   margin: 0px;
   padding: 0px;
-  background-color: #131313;
+  background-color: $backgroundColor;
 }
 
 .main-button {
@@ -23,7 +27,7 @@ html, body {
 .main-button__container {
   flex-basis: 98%;
   width: 100%;
-  color: #FFFFFF;
+  color: $color;
   transform: skew(-20deg);
   background-color: #C2AB81;
   padding: 1.5vh;
@@ -35,11 +39,11 @@ html, body {
   width: 5px;
   margin-left: 2px;
   transform: skew(-20deg);
-  background-color: #FFFFFF;
+  background-color: $color;
 }
 
 .main-button__button {
-  color: #FFFFFF;
+  color: $color;
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid #C2AB81;
   font-size: 0.9vw;
@@ -54,8 +58,8 @@ html, body {
   width: 90%;
   padding: 0.25vh;
   transform: skew(-20deg);
-  background-color: #131313;
-  border: 1px solid #FFFFFF;
+  background-color: $backgroundColor;
+  border: 1px solid $color;
   opacity: 40%;
 }
 /*# sourceMappingURL=index.css.map */

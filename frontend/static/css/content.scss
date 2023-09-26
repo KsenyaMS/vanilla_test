@@ -7,8 +7,11 @@
   src: local("Montserrat"), url(../fonts/Montserrat-Bold.ttf) format("truetype");
 }
 
+$color: #FFFFFF;
+$backgroundColor: #131313;
+
 .content {
-  color: #FFFFFF;
+  color: $color;
   margin-left: 2vw;
 }
 
@@ -24,11 +27,11 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  color: #131313;
+  color: $backgroundColor;
 }
 
 .content__card {
-  background-color: #FFFFFF;
+  background-color: $color;
   margin: 10px;
   width: 300px;
   height: 620px;
@@ -74,8 +77,8 @@
   height: 40px;
   font-size: 14px;
   font-weight: 600;
-  color: #FFFFFF;
-  background-color: #131313;
+  color: $color;
+  background-color: $backgroundColor;
 }
 
 .content__img {
