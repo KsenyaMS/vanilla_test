@@ -138,11 +138,10 @@ function check()
     let username = document.getElementById('username').value;
     let email = document.getElementById('email').value;
     let phone = document.getElementById('phone').value;
-    console.log(typeof phone);
     if (username === "") alert("Введите имя пользователя!");
+    else if (!/^[a-zA-Z]{20}$/.test(username)) alert("Некорректное имя пользователя!");
     if (email === "") alert("Введите email!");
+    else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email)) alert("Некорректный адрес электронной почты!");
     if (phone === "") alert("Введите номер телефона!");
-    if (!/^[a-zA-Z]{20}$/.test(username)) alert("Некорректное имя пользователя!");
-    if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email)) alert("Некорректный адрес электронной почты!");
-    if (!/^[0-9]{11}$/.test(phone)) alert("Некорректный номер телефона!");
+    else if (!/^[0-9]{11}$/.test(phone)) alert("Некорректный номер телефона!");
 }
