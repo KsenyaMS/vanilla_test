@@ -1,0 +1,132 @@
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: local("Montserrat"), url(../fonts/Montserrat-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: local("Montserrat"), url(../fonts/Montserrat-Bold.ttf) format("truetype");
+}
+.modal {
+  color: #FFFFFF;
+  font-family: "Montserrat-Regular";
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  padding: 30px 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 200ms ease-in;
+  pointer-events: none;
+}
+
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+  overflow-y: auto;
+}
+
+.modal__dialog {
+  position: relative;
+  width: 400px;
+  height: auto;
+  margin: 10px;
+  background: #131313;
+  padding: 10px;
+}
+
+.modal__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #131313;
+  background-clip: padding-box;
+  outline: 0;
+}
+
+.modal__content__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.modal__content__header__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.modal__content__header__close {
+  float: right;
+  font-family: "Montserrat-Regular";
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1;
+  color: #FFFFFF;
+  text-shadow: 0 1px 0 #131313;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.modal__content__header__close:focus, .modal__content__header__close:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.modal__content__body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow: auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.modal__content__body__input {
+  font-family: "Montserrat-Regular";
+  background-color: #262626;
+  border: 1px solid #808080;
+  color: #808080;
+  box-shadow: 0 0 5px rgba(128, 128, 128, 0.1);
+  width: 90%;
+  height: 35px;
+  border-radius: 5px;
+  padding: 0 0 0 10px;
+  margin: 0 0 10px 10px;
+}
+
+.modal__content__body__label {
+  margin: 10px;
+}
+
+.modal__content__submit-button {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal__content__body__form__text {
+  font-size: 0.65rem;
+  margin: 0 0 10px 10px;
+}
+
+@media (min-width: 400px) {
+  .modal__dialog {
+    max-width: 500px;
+    margin: 30px auto;
+  }
+}/*# sourceMappingURL=modal.css.map */

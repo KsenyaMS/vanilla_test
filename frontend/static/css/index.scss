@@ -9,6 +9,7 @@
 
 $color: #FFFFFF;
 $backgroundColor: #131313;
+$buttonBackgroundColor: #C2AB81;
 
 html, body {
   height: 100%;
@@ -19,17 +20,17 @@ html, body {
 
 .main-button {
   flex-basis: 60%;
-  width: 60%;
+  height: 60%;
+  margin: 10px;
   display: flex;
   justify-content: space-between;
 }
 
 .main-button__container {
-  flex-basis: 98%;
   width: 100%;
   color: $color;
   transform: skew(-20deg);
-  background-color: #C2AB81;
+  background-color: $buttonBackgroundColor;
   padding: 1.5vh;
   display: flex;
   justify-content: center;
@@ -43,23 +44,37 @@ html, body {
 }
 
 .main-button__button {
+  font-family: "Montserrat-Regular";
   color: $color;
-  background-color: rgba(0, 0, 0, 0);
-  border: 1px solid #C2AB81;
-  font-size: 0.9vw;
+  text-decoration: none;
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 18px;
   font-weight: 700;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-wrap: nowrap;
   transform: skew(20deg);
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .phone-button {
-  flex-basis: 4vw;
-  width: 90%;
+  width: 95%;
+  margin: 10px;
+  height: 60%;
+  flex-basis: 18%;
   padding: 0.25vh;
   transform: skew(-20deg);
   background-color: $backgroundColor;
   border: 1px solid $color;
   opacity: 40%;
+}
+
+@media (max-width: 450px) {
+  .phone-button, .main-button {
+    flex-basis: 90%;
+    width: 100%;
+    height: 55%;
+    margin-top: 15px;
+  }
 }
 /*# sourceMappingURL=index.css.map */

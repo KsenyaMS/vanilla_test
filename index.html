@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="./frontend/static/css/content.css">
     <link rel="stylesheet" href="./frontend/static/css/footer.css">
     <link rel="stylesheet" href="./frontend/static/css/mobileMenu.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./frontend/static/css/modal.css">
 </head>
 <body>
     <div class="header">
-        <div style="color: white;" class="mynav-icon">
-            <img src="./frontend/static/css/menuIcon.svg"/>
+        <div onclick="collapseMenu()" style="color: white;" class="mynav-icon">
+            <img src="./frontend/static/css/menuIcon.svg" alt="Menu">
         </div>
-        <img class="header__image" src="./frontend/static/css/Magwai.svg"/>
+        <img class="header__image" src="./frontend/static/css/Magwai.svg" alt="Logo">
         <div class="header__menu">
             <nav>
-                <ul class="header__menu__ul">
+                <ul>
                     <li class="menu__ul__li">УСЛУГИ</li>
                     <li class="menu__ul__li">АБОНЕМЕНТЫ</li>
                     <li class="menu__ul__li">ПОЧЕМУ МЫ</li>
@@ -32,20 +32,20 @@
             </nav>
         </div>
         <div class="header__buttons">
-            <button class="phone-button"><img src="./frontend/static/css/PhoneIcon.svg"/></button>
+            <button class="phone-button"><img style="width: 32px;" src="./frontend/static/css/PhoneIcon.svg" alt="Phone"></button>
             <div class="main-button">
                 <div class="main-button__container">
-                    <button class="main-button__button">ОСТАВИТЬ ЗАЯВКУ</button>
+                    <a href="#openModal" class="main-button__button">ОСТАВИТЬ ЗАЯВКУ</a>
                 </div>
                 <div class="main-button__strip"></div>
             </div>
         </div>
     </div>
-    <div class="mobile-menu">
+    <div class="mobile-menu" id="mobile-menu">
         <nav>
-            <ul class="mobile__menu__ul">
+            <ul class="mobile-menu__ul">
                 <li>УСЛУГИ</li>
-                <li">АБОНЕМЕНТЫ</li>
+                <li>АБОНЕМЕНТЫ</li>
                 <li>ПОЧЕМУ МЫ</li>
                 <li>ОБОРУДОВАНИЕ</li>
                 <li>АКЦИИ</li>
@@ -54,35 +54,39 @@
             </ul>
         </nav>
         <div class="mobile-menu__buttons">
-            <div class="mobile-menu__inline-block">
-                <button class="phone-button"><img src="./frontend/static/css/PhoneIcon.svg"/></button>
-                <div style="margin-top: 10px; width: 88%;" class="main-button">
+            <div class="mobile-menu__button-containter">
+                <button class="phone-button"><img src="./frontend/static/css/PhoneIcon.svg" alt="Phone"></button>
+            </div>
+            <div class="mobile-menu__button-containter">
+                <div class="main-button">
                     <div class="main-button__container">
-                        <button class="main-button__button">ОСТАВИТЬ ЗАЯВКУ</button>
+                        <a href="#openModal" class="main-button__button">ОСТАВИТЬ ЗАЯВКУ</a>
                     </div>
                     <div class="main-button__strip"></div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="inform-picture">
+    <div class="inform-picture" id="inform-picture">
         <div class="inform-picture__content">
             <p class="inform-picture__content__title">ПОЛЕТ ИЛОНА МАСКА И DOGIE COIN</p>
             <p class="inform-picture__content__text">В прошлый четверг все офигели от полета DOGIE COIN на марс.</p>
-            <div class="main-button">
-                <div class="main-button__container">
-                    <button class="main-button__button">ОСТАВИТЬ ЗАЯВКУ</button>
+            <div class="inform-picture__content__button">
+                <div class="main-button">
+                    <div class="main-button__container">
+                        <a href="#openModal" class="main-button__button">ОСТАВИТЬ ЗАЯВКУ</a>
+                    </div>
+                    <div class="main-button__strip"></div>
                 </div>
-                <div class="main-button__strip"></div>
             </div>
         </div>
     </div>
-    <div class="content">
+    <div class="content" id="content">
         <p class="content__title">КАРТОЧКИ</p>
         <div class="content__card-list">
         </div>
     </div>
-    <div class="footer">
+    <div class="footer" id="footer">
         <div class="main-button">
             <div class="main-button__container">
                 <button class="main-button__button" type="submit" onclick="showCards()">ЗАГРУЗИТЬ ЕЩЕ</button>
@@ -90,32 +94,42 @@
             <div class="main-button__strip"></div>
         </div>
     </div>
-    <script>
-        let status = false;
-        $(window).resize(function() {
-            var width = $(window).width();
-            if (width > 400) {
-                $('.mobile-menu').removeAttr('style');
-            } else if (width <= 400) {
-                $('.mobile-menu').hide();
-            };
-        });
-        $('.mynav-icon').click(function() {
-            status = !status;
-            if (status === true) {
-                $('.mobile-menu').toggle("active");
-                $('.content').hide();
-                $('.footer').hide();
-                $('.inform-picture').hide();
-            }
-            else if (status === false) {
-                $('.mobile-menu').hide();
-                $('.content').toggle("active");
-                $('.footer').toggle("active");
-                $('.inform-picture').toggle("active");
-            }
-        });
-    </script>
+    <div id="openModal" class="modal" aria-hidden="true">
+        <div class="modal__dialog">
+            <div class="modal__content" role="dialog" aria-modal="true">
+                <div class="modal__content__header">
+                    <h3 class="modal__content__header__title">ЗАЯВКА</h3>
+                    <a href="#close" title="Close" class="modal__content__header__close">×</a>
+                </div>
+                <div class="modal__content__body">
+                    <form name="modal__content__body__form" id="modal__content__body__form">
+                        <label class="modal__content__body__label" for="username">
+                            Имя пользователя
+                        </label>
+                        <input name="username" id="username" class="modal__content__body__input" placeholder="Имя пользователя" type="text">
+                        <p class="modal__content__body__form__text">В имени пользователя могут содержаться только буквы</p>
+                        <label class="modal__content__body__label" for="email">
+                            E-mail
+                        </label>
+                        <input name="email" id="email" class="modal__content__body__input" placeholder="email" type="text">
+                        <label class="modal__content__body__label" for="phone">
+                            Номер телефона
+                        </label>
+                        <input name="phone" id="phone" class="modal__content__body__input" placeholder="Телефон" type="text">
+                        <p class="modal__content__body__form__text">В номере телефона могут содержаться только цифры</p>
+                    </form>
+                </div>
+                <div class="modal__content__submit-button">
+                    <div class="main-button">
+                        <div class="main-button__container">
+                            <button onclick="check()" class="main-button__button" type="submit">ОТПРАВИТЬ</button>
+                        </div>
+                        <div class="main-button__strip"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="./frontend/static/index.js"></script>
 </body>
 </html>

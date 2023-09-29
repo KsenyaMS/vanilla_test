@@ -13,32 +13,32 @@ $textColor: #808080;
 .mobile-menu {
   width: 100%;
   height: 100%;
-  padding: 10px;
+  display: none;
 }
 
-.mobile__menu__ul {
+.mobile-menu__ul {
   font-family: "Montserrat-Regular";
   font-size: 8vw;
   font-weight: 700;
+  width: 80%;
+  padding-inline-start: 20px;
+  height: 50vh;
   color: $backgroundColor;
   text-shadow: -1px 0 $textColor, 0 1px $textColor, 1px 0 $textColor, 0 -1px $textColor;
   list-style-type: none;
 }
 
 .mobile-menu__buttons {
-  width: 80%;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  height: 30vh;
 }
 
-.mobile-menu__inline-block {
-  display: inline;
-  width: 100%;
-  height: 60px;
-  padding: 20px;
+.mobile-menu__button-containter {
+  width: 80%;
+  height: 45%;
+  padding: 0px;
+  margin-left: 5vw;
+  margin-right: auto;
 }
 
 @media (min-width: 1000px) {

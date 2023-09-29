@@ -10,7 +10,7 @@
   margin: 0;
   display: grid;
   place-content: center;
-  height: 65vh;
+  height: 75vh;
   background-image: url("./Background.png");
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
@@ -22,7 +22,7 @@
 .inform-picture__content {
   position: absolute;
   width: 38vw;
-  height: 38vh;
+  height: 55%;
   left: 4vw;
   bottom: 2vw;
   color: #FFFFFF;
@@ -38,4 +38,25 @@
   font-family: "Montserrat-Regular";
   font-size: 1vw;
   font-weight: 400;
+}
+
+.inform-picture__content__button {
+  width: 60%;
+  height: 30%;
+}
+
+@media (max-width: 1000px) {
+  .inform-picture__content {
+    width: 70vw;
+  }
+  .inform-picture__content__button {
+    width: 80%;
+    height: 25%;
+  }
+  .inform-picture__content__title {
+    font-size: 5vw;
+  }
+  .inform-picture__content__text {
+    font-size: 3vw;
+  }
 }/*# sourceMappingURL=picture.css.map */

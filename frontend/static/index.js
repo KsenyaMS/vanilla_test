@@ -1,4 +1,5 @@
 let index = 0;
+let maxCount = 30;
 fetch(`https://jsonplaceholder.typicode.com/posts`)
     .then((response) => response.json())
     .then((json) => {
@@ -56,13 +57,12 @@ function showCards()
     fetch(`https://jsonplaceholder.typicode.com/posts`)
     .then((response) => response.json())
     .then((json) => {
-        console.log({index});
         let cards = [];
-        cards = json.slice(index, json.length > 30+index ? 30+index : json.length);
-        index = index + 30;
-        console.log({cards});
-        if (index >= json.length) {
-            $('.footer').hide();
+        cards = json.slice(0, 30);
+        cards = cards.slice(index, cards.length > 5+index ? 5+index : cards.length);
+        index = index + 5;
+        if (index >= 30) {
+            document.getElementById("footer").style.display = "none";
         }
         var cardsContainer = document.querySelector(".content__card-list");
         for (var i = 0; i < cards.length; i++) {
@@ -75,7 +75,7 @@ function showCards()
             
             var cardImg = document.createElement("img");
             cardImg.className = "content__img";
-            cardImg.src = "./static/css/cardImage.png";
+            cardImg.src = "./frontend/static/css/cardImage.png";
             cardImg.alt = "Card image";
             
             var cardContentName = document.createElement("p");
@@ -110,4 +110,39 @@ function showCards()
             cardsContainer.appendChild(cardElement);
         }
     });
+}
+
+let status = false;
+function collapseMenu()
+{
+    status = !status;
+    document.getElementById("footer").style.display = "none";
+    if (status === true) {
+        document.getElementById("mobile-menu").style.display = "block";
+        document.getElementById("content").style.display = "none";
+        document.getElementById("footer").style.display = "none";
+        document.getElementById("inform-picture").style.display = "none";
+    }
+    else if (status === false) {
+        document.getElementById("mobile-menu").style.display = "none";
+        document.getElementById("content").style.display = "block";
+        document.getElementById("footer").style.display = "block";
+        document.getElementById("inform-picture").style.display = "block";
+    }
+
+}
+
+
+function check()
+{
+    let username = document.getElementById('username').value;
+    let email = document.getElementById('email').value;
+    let phone = document.getElementById('phone').value;
+    console.log(typeof phone);
+    if (username === "") alert("Введите имя пользователя!");
+    if (email === "") alert("Введите email!");
+    if (phone === "") alert("Введите номер телефона!");
+    if (!/^[a-zA-Z]{20}$/.test(username)) alert("Некорректное имя пользователя!");
+    if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email)) alert("Некорректный адрес электронной почты!");
+    if (!/^[0-9]{11}$/.test(phone)) alert("Некорректный номер телефона!");
 }
